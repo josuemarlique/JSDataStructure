@@ -1,3 +1,4 @@
+//THIS WAS NOT TESTED, BUT SHOULD WORK
 export interface ISinglyListNode<T> {
   value: T;
   next: ISinglyListNode<T> | null;
