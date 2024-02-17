@@ -39,7 +39,8 @@
 // // 4 * 3 * 2 * 1
 // console.log(factorial(-4));
 
-import { BST, TraversOrder } from "./BinarySearchTree/BinarySearchTree";
+// import { BST, TraversOrder } from "./BinarySearchTree/BinarySearchTree";
+import { BST } from "./BinarySearchTree/BinarySearchTree";
 
 var bst = new BST(50);
 bst.Insert(30);
@@ -58,4 +59,6 @@ bst.Insert(105);
 
 //console.log(bst.Contains(58));
 
-bst.DepthFirstTraversal((value) => console.log(value), TraversOrder.PostOrder);
+// bst.DepthFirstTraversal((value) => console.log(value), TraversOrder.PostOrder);
+
+// bst.BreadthFirstTraversal((node) => console.log(node.value));

@@ -58,6 +58,7 @@ export class BST<T> {
     return false;
   }
 
+  //goes down the branch
   DepthFirstTraversal(iteratorFunc: (value: T) => void, order: TraversOrder) {
     //in order depth first traversal
     if (order === TraversOrder.PreOrder) iteratorFunc(this.value);
@@ -65,5 +66,16 @@ export class BST<T> {
     if (order === TraversOrder.InOrder) iteratorFunc(this.value);
     if (this.right) this.right.DepthFirstTraversal(iteratorFunc, order);
     if (order === TraversOrder.PostOrder) iteratorFunc(this.value);
+  }
+
+  // goes down the branch level by level
+  BreadthFirstTraversal(iteratorFunc: (node: BST<T>) => void) {
+    let queue = [this] as BST<T>[]; // THE TRICK is the queue
+    while (queue.length) {
+      let treeNode: BST<T> = queue.shift() as BST<T>;
+      iteratorFunc(treeNode);
+      if (treeNode.left) queue.push(treeNode.left);
+      if (treeNode.right) queue.push(treeNode.right);
+    }
   }
 }
