@@ -78,4 +78,32 @@ export class BST<T> {
       if (treeNode.right) queue.push(treeNode.right);
     }
   }
+
+  GetMinValWhileLoop(): T {
+    let node: BST<T> = this;
+    while (node.left) {
+      node = node.left;
+    }
+
+    return node.value;
+  }
+
+  GetMaxValWhileLoop(): T {
+    let node: BST<T> = this;
+    while (node.right) {
+      node = node.right;
+    }
+
+    return node.value;
+  }
+
+  GetMinVal(): T {
+    if (this.left) return this.left.GetMinVal();
+    else return this.value;
+  }
+
+  GetMaxVal(): T {
+    if (this.right) return this.right.GetMaxVal();
+    else return this.value;
+  }
 }

@@ -62,3 +62,6 @@ bst.Insert(105);
 // bst.DepthFirstTraversal((value) => console.log(value), TraversOrder.PostOrder);
 
 // bst.BreadthFirstTraversal((node) => console.log(node.value));
+
+console.log(bst.GetMinVal());
+console.log(bst.GetMaxVal());
