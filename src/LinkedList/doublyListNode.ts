@@ -14,4 +14,6 @@ export class DoublyListNode<T> implements IDoublyListNode<T> {
     this.next = null;
     this.prev = null;
   }
+
+  //TODO: finish implementing one day lol
 }

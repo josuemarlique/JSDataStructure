@@ -4,7 +4,7 @@ interface ILinkedList<T> {
   head: IDoublyListNode<T> | null;
   tail: IDoublyListNode<T> | null;
 
-  AddToHead(value: T): void;
+  addToHead(value: T): void;
 }
 
 export class LinkedList<T> implements ILinkedList<T> {
@@ -16,7 +16,7 @@ export class LinkedList<T> implements ILinkedList<T> {
     this.tail = null;
   }
 
-  AddToHead(value: T): void {
+  addToHead(value: T): void {
     let oldHead = this.head; //the old head is our current head before the new node creation
     let newNode = new DoublyListNode<T>(value);
     newNode.next = oldHead;
@@ -31,7 +31,7 @@ export class LinkedList<T> implements ILinkedList<T> {
     this.head = newNode;
   }
 
-  AddToTail(value: T): void {
+  addToTail(value: T): void {
     let oldTail = this.tail; //the old head is our current head before the new node creation
     let newNode = new DoublyListNode<T>(value);
     newNode.next = null;
@@ -46,7 +46,7 @@ export class LinkedList<T> implements ILinkedList<T> {
     this.tail = newNode;
   }
 
-  RemoveHead<T>(): T | null {
+  removeHead<T>(): T | null {
     if (!this.head) return null;
 
     let val = this.head.value as T;
@@ -61,7 +61,7 @@ export class LinkedList<T> implements ILinkedList<T> {
     return val;
   }
 
-  RemoveTail<T>(): T | null {
+  removeTail<T>(): T | null {
     if (!this.tail) return null;
 
     let val = this.tail.value as T;
@@ -76,7 +76,7 @@ export class LinkedList<T> implements ILinkedList<T> {
     return val;
   }
 
-  Search<T>(value: T): IDoublyListNode<T> | null {
+  search<T>(value: T): IDoublyListNode<T> | null {
     let currentNode = this.head;
 
     while (currentNode) {
@@ -88,7 +88,7 @@ export class LinkedList<T> implements ILinkedList<T> {
   }
 
   //find an index and return all the index of that value in an array
-  IndexOf(value: T): number[] {
+  indexOf(value: T): number[] {
     let currentNode = this.head;
     let index = 0;
     let indexes: number[] = [];

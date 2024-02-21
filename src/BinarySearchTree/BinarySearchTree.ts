@@ -27,31 +27,31 @@ export class BST<T> {
     this.right = null;
   }
 
-  Insert(value: T) {
+  insert(value: T) {
     if (value <= this.value) {
       // read it as "if there is NO left" Then
       if (!this.left) this.left = new BST(value);
-      else this.left.Insert(value);
+      else this.left.insert(value);
     } else if (value > this.value) {
       if (!this.right) this.right = new BST(value);
-      else this.right.Insert(value);
+      else this.right.insert(value);
     }
   }
 
-  Contains(value: T): boolean {
+  contains(value: T): boolean {
     if (value === this.value) {
       return true;
     } else if (value < this.value) {
       if (!this.left) {
         return false;
       } else {
-        return this.left.Contains(value);
+        return this.left.contains(value);
       }
     } else if (value > this.value) {
       if (!this.right) {
         return false;
       } else {
-        return this.right.Contains(value);
+        return this.right.contains(value);
       }
     }
 
@@ -59,17 +59,17 @@ export class BST<T> {
   }
 
   //goes down the branch
-  DepthFirstTraversal(iteratorFunc: (value: T) => void, order: TraversOrder) {
+  depthFirstTraversal(iteratorFunc: (value: T) => void, order: TraversOrder) {
     //in order depth first traversal
     if (order === TraversOrder.PreOrder) iteratorFunc(this.value);
-    if (this.left) this.left.DepthFirstTraversal(iteratorFunc, order);
+    if (this.left) this.left.depthFirstTraversal(iteratorFunc, order);
     if (order === TraversOrder.InOrder) iteratorFunc(this.value);
-    if (this.right) this.right.DepthFirstTraversal(iteratorFunc, order);
+    if (this.right) this.right.depthFirstTraversal(iteratorFunc, order);
     if (order === TraversOrder.PostOrder) iteratorFunc(this.value);
   }
 
   // goes down the branch level by level
-  BreadthFirstTraversal(iteratorFunc: (node: BST<T>) => void) {
+  breadthFirstTraversal(iteratorFunc: (node: BST<T>) => void) {
     let queue = [this] as BST<T>[]; // THE TRICK is the queue
     while (queue.length) {
       let treeNode: BST<T> = queue.shift() as BST<T>;
@@ -79,7 +79,7 @@ export class BST<T> {
     }
   }
 
-  GetMinValWhileLoop(): T {
+  getMinValWhileLoop(): T {
     let node: BST<T> = this;
     while (node.left) {
       node = node.left;
@@ -88,7 +88,7 @@ export class BST<T> {
     return node.value;
   }
 
-  GetMaxValWhileLoop(): T {
+  getMaxValWhileLoop(): T {
     let node: BST<T> = this;
     while (node.right) {
       node = node.right;
@@ -97,13 +97,13 @@ export class BST<T> {
     return node.value;
   }
 
-  GetMinVal(): T {
-    if (this.left) return this.left.GetMinVal();
+  getMinVal(): T {
+    if (this.left) return this.left.getMinVal();
     else return this.value;
   }
 
-  GetMaxVal(): T {
-    if (this.right) return this.right.GetMaxVal();
+  getMaxVal(): T {
+    if (this.right) return this.right.getMaxVal();
     else return this.value;
   }
 }
