@@ -40,20 +40,20 @@
 // console.log(factorial(-4));
 
 // import { BST, TraversOrder } from "./BinarySearchTree/BinarySearchTree";
-import { BST } from "./BinarySearchTree/BinarySearchTree";
+// import { BST } from "./BinarySearchTree/BinarySearchTree";
 
-var bst = new BST(50);
-bst.Insert(30);
-bst.Insert(20);
-bst.Insert(10);
-bst.Insert(45);
-bst.Insert(35);
-bst.Insert(70);
-bst.Insert(60);
-bst.Insert(59);
-bst.Insert(100);
-bst.Insert(85);
-bst.Insert(105);
+// var bst = new BST(50);
+// bst.Insert(30);
+// bst.Insert(20);
+// bst.Insert(10);
+// bst.Insert(45);
+// bst.Insert(35);
+// bst.Insert(70);
+// bst.Insert(60);
+// bst.Insert(59);
+// bst.Insert(100);
+// bst.Insert(85);
+// bst.Insert(105);
 
 // console.log(bst.right?.right);
 
@@ -63,5 +63,22 @@ bst.Insert(105);
 
 // bst.BreadthFirstTraversal((node) => console.log(node.value));
 
-console.log(bst.GetMinVal());
-console.log(bst.GetMaxVal());
+// console.log(bst.GetMinVal());
+// console.log(bst.GetMaxVal());
+
+import { HashTable } from "./HashTable/hashTable";
+
+var myht = new HashTable(30);
+// console.log(myht.hash("Becca"));
+
+myht.insert("Dean", "dean@gmail.com");
+myht.insert("Megan", "megan@gmail.com");
+myht.insert("Dane", "dane@yahoo.com");
+myht.insert("Dean", "deanss@gmail.com");
+myht.insert("Megan", "megangoone@gmail.com");
+myht.insert("Dane", "danerrrrr@yahoo.com");
+
+// console.log(myht);
+// console.log(myht.buckets[16].next);
+// console.log(myht.get("Dane"));
+console.log(myht.retrieveAll());
